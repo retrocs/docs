@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style/site.css">
+
+        <title>How to set Turkish settings in MSDOS 6.22</title>
+    </head>
+    <body>
+        <h1>How to set Turkish settings in MSDOS 6.22</h1>
+        <p>In order to complete Turkish settings in MSDOS 6.22 you need to make chances in two different files</p>
+        
+        <ol>
+            <li>CONFIG.SYS</li>
+            <li>AUTOEXEC.BAT</li>
+        </ol>
+
+        <p>But before that, make sure to note somewhere your DOS installation folder (default is C:\DOS)</p>
+
+        <h2>Changes in CONFIG.SYS</h2>
+        <p>Type "edit CONFIG.SYS" to start editing. You'll probably see couple of lines have already inserted. Go to end of file and type following two lines:</p>
+            
+                
+<pre>COUNTY=090,857,C:\DOS\COUNTRY.SYS
+DEVICE=C:\DOS\DISPLAY.SYS CON=(,,1)</pre>
+                
+            
+        <p>Save and close file.</p>
+
+        <h2>Changes in AUTOEXEC.BAT</h2>
+        <p>Type "edit AUTOEXEC.BAT" to start editing. Go to end of the file and add following lines:</p>
+        
+<pre>MODE CON CP PREPARE((857) C:\DOS\EGA2.CPI)
+MODE CON CP SELECT=857
+KEYB TR,,C:\DOS\KEYBRD2.SYS /ID:179</pre>
+        <p>Save and close file. When you restart your computer (or most probably your virtual PC), regional settings and keyboard layout of your MSDOS installation will be Turkish (Q keyboard layout)</p>
+    </body>
+</html>
